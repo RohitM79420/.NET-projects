@@ -1,0 +1,35 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Validation_in_constructor
+{
+    class FillForm
+    {
+        String name;
+
+        public FillForm(string name) 
+        {   if(name.Length <3)
+            {
+                throw new Exception("Please enter valid name ");
+            }
+            else this.name = name;
+            Console.WriteLine("In Constructor");
+        }
+          
+    }
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            try
+            {
+                FillForm f1 = new FillForm("vita"); //valid Input
+                FillForm f = new FillForm("vi");    //Invalid input
+            }
+            catch (Exception e) { Console.WriteLine(e.Message); }
+        }
+    }
+}
